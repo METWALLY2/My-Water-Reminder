@@ -81,7 +81,7 @@ object NotificationHelper {
         )
 
         val notification = NotificationCompat.Builder(context, channelFor(mode))
-            .setSmallIcon(R.drawable.ic_notification)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentTitle("Time to drink water 💧")
             .setContentText(text)
             .setContentIntent(openApp)
