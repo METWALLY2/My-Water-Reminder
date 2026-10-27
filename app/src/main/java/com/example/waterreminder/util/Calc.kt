@@ -52,18 +52,18 @@ object Units {
 
 /** Locale-pinned formatters so digits and names stay consistent with the English UI. */
 object Fmt {
-    private val time = DateTimeFormatter.ofPattern("HH:mm", Locale.US)
-    private val dayTitle = DateTimeFormatter.ofPattern("EEE, MMM d", Locale.ENGLISH)
-    private val shortDate = DateTimeFormatter.ofPattern("d MMM", Locale.ENGLISH)
-    private val monthTitle = DateTimeFormatter.ofPattern("MMMM yyyy", Locale.ENGLISH)
+    private val timeFmt = DateTimeFormatter.ofPattern("HH:mm", Locale.US)
+    private val dayFmt = DateTimeFormatter.ofPattern("EEE, MMM d", Locale.ENGLISH)
+    private val shortFmt = DateTimeFormatter.ofPattern("d MMM", Locale.ENGLISH)
+    private val monthFmt = DateTimeFormatter.ofPattern("MMMM yyyy", Locale.ENGLISH)
 
     fun clock(epochMillis: Long): String =
-        Instant.ofEpochMilli(epochMillis).atZone(ZoneId.systemDefault()).format(time)
+        Instant.ofEpochMilli(epochMillis).atZone(ZoneId.systemDefault()).format(timeFmt)
 
     fun minutes(totalMinutes: Int): String =
         String.format(Locale.US, "%02d:%02d", (totalMinutes / 60) % 24, totalMinutes % 60)
 
-    fun dayTitle(d: LocalDate): String = d.format(dayTitle)
-    fun shortDate(d: LocalDate): String = d.format(shortDate)
-    fun monthTitle(d: LocalDate): String = d.format(monthTitle)
+    fun dayTitle(d: LocalDate): String = d.format(dayFmt)
+    fun shortDate(d: LocalDate): String = d.format(shortFmt)
+    fun monthTitle(d: LocalDate): String = d.format(monthFmt)
 }
