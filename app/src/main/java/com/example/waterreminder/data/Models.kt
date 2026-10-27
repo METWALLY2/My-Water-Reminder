@@ -16,8 +16,8 @@ enum class DrinkType(val label: String, val emoji: String) {
     CUSTOM("Custom", "🍹");
 
     companion object {
-        fun fromName(name: String): DrinkType = entries.firstOrNull { it.name == name } ?: WATER
-        val selectable: List<DrinkType> get() = entries.filter { it != CUSTOM }
+        fun fromName(name: String): DrinkType = DrinkType.entries.firstOrNull { it.name == name } ?: WATER
+        val selectable: List<DrinkType> get() = DrinkType.entries.filter { it != CUSTOM }
     }
 }
 
